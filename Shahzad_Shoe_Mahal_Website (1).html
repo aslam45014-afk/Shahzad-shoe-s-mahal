@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>شہزاد شو محل | Shahzad Shoe Mahal</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--green:#087f3f;--green2:#0aa85a;--dark:#123524;--light:#f7faf8;--gold:#e7b94e;--white:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Nastaliq Urdu',serif;background:var(--light);color:#222;line-height:2}
+header{background:linear-gradient(135deg,var(--dark),var(--green));color:#fff;padding:12px 5%;position:sticky;top:0;z-index:20;box-shadow:0 2px 10px #0004}
+nav{display:flex;align-items:center;justify-content:space-between;gap:15px}
+.logo{font-size:1.4rem;font-weight:bold;color:var(--gold)}
+nav ul{display:flex;list-style:none;gap:18px;flex-wrap:wrap}
+nav a{color:#fff;text-decoration:none;font-family:Poppins,sans-serif;font-size:.9rem}
+.hero{min-height:480px;background:linear-gradient(90deg,#063d25e8,#087f3fd9),url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1600&q=80') center/cover;display:flex;align-items:center;justify-content:center;text-align:center;color:white;padding:40px 20px}
+.hero h1{font-size:clamp(2rem,5vw,4rem);color:var(--gold)}
+.hero p{font-size:1.2rem;margin:15px auto;max-width:700px}
+.btn{display:inline-block;background:var(--gold);color:#1b261f;text-decoration:none;padding:10px 28px;border-radius:30px;font-family:Poppins,sans-serif;font-weight:bold;margin:8px;cursor:pointer;border:none}
+.btn.green{background:var(--green);color:white}
+section{padding:55px 5%;max-width:1300px;margin:auto}
+.title{text-align:center;color:var(--dark);font-size:2rem;margin-bottom:28px}
+.title:after{content:'';display:block;width:80px;height:4px;background:var(--gold);margin:8px auto;border-radius:5px}
+.categories,.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:20px}
+.card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 5px 18px #0001;transition:.2s}
+.card:hover{transform:translateY(-5px)}
+.card img{width:100%;height:190px;object-fit:cover}
+.card h3,.card p{padding:0 15px}
+.card h3{color:var(--dark);margin-top:10px}
+.card p{padding-bottom:15px;color:#666}
+.about{background:#eaf6ef;border-radius:20px;padding:30px;text-align:center}
+.contact{background:var(--dark);color:white;max-width:none}
+.contact .inside{max-width:1200px;margin:auto;text-align:center}
+footer{text-align:center;background:#071d12;color:#ddd;padding:18px;font-family:Poppins,sans-serif}
+.admin{background:white;border-radius:18px;padding:25px;box-shadow:0 5px 18px #0001}
+.admin input,.admin select{width:100%;padding:11px;margin:8px 0;border:1px solid #ddd;border-radius:8px;font-family:Poppins,sans-serif}
+.admin-row{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+#adminPanel{display:none}
+.admin-product{border-bottom:1px solid #eee;padding:10px;display:flex;justify-content:space-between;gap:10px;align-items:center}
+.delete{background:#c62828;color:white;border:0;border-radius:7px;padding:6px 12px;cursor:pointer}
+.notice{text-align:center;background:#fff3cd;color:#664d03;padding:8px;font-size:.85rem}
+@media(max-width:650px){nav{flex-direction:column}.admin-row{grid-template-columns:1fr}.hero{min-height:400px}}
+</style>
+</head>
+<body>
+
+<header>
+<nav>
+<div class="logo">👞 شہزاد شو محل</div>
+<ul>
+<li><a href="#home">ہوم</a></li>
+<li><a href="#products">پروڈکٹس</a></li>
+<li><a href="#about">ہمارے بارے میں</a></li>
+<li><a href="#contact">رابطہ</a></li>
+<li><a href="#admin" onclick="openAdmin()">ایڈمن</a></li>
+</ul>
+</nav>
+</header>
+
+<div class="notice">✨ بہترین جوتے، چپل اور فیشن — شہزاد شو محل</div>
+
+<section class="hero" id="home">
+<div>
+<h1>شہزاد شو محل</h1>
+<p>مردانہ، زنانہ اور بچوں کے جوتے، چپل، پشاوری چپل، اسکول شوز اور اسکول بیگز ایک ہی جگہ!</p>
+<a class="btn" href="#products">پروڈکٹس دیکھیں</a>
+<a class="btn green" href="#contact">رابطہ کریں</a>
+</div>
+</section>
+
+<section>
+<h2 class="title">ہماری کیٹیگریز</h2>
+<div class="categories">
+<div class="card"><img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=700&q=80"><h3>مردانہ جوتے</h3><p>اعلیٰ معیار اور جدید ڈیزائن</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=700&q=80"><h3>زنانہ جوتے</h3><p>خوبصورت اور فیشن ایبل ڈیزائن</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1514989940723-e8e51635b782?auto=format&fit=crop&w=700&q=80"><h3>بچوں کے جوتے</h3><p>آرام دہ اور مضبوط</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=700&q=80"><h3>پشاوری چپل</h3><p>روایتی انداز، بہترین کوالٹی</p></div>
+</div>
+</section>
+
+<section id="products">
+<h2 class="title">موجودہ پروڈکٹس</h2>
+<div class="products" id="productList"></div>
+</section>
+
+<section id="about">
+<div class="about">
+<h2 class="title">شہزاد شو محل کے بارے میں</h2>
+<p>شہزاد شو محل میں آپ کو مختلف اقسام کے جوتے اور چپل مناسب قیمت اور بہترین معیار کے ساتھ ملتے ہیں۔ ہمارا مقصد اپنے گاہکوں کو بہترین خریداری کا تجربہ دینا ہے۔</p>
+<p><strong>📍 مقام: واٹر پمپ، لطیف مارکیٹ، گیٹ نمبر 4</strong></p>
+</div>
+</section>
+
+<section id="contact" class="contact">
+<div class="inside">
+<h2 class="title" style="color:white">رابطہ کریں</h2>
+<p>📍 واٹر پمپ، لطیف مارکیٹ، گیٹ نمبر 4</p>
+<p>👞 شہزاد شو محل — آپ کے اعتماد کا نام</p>
+<a class="btn" href="#home">اوپر جائیں</a>
+</div>
+</section>
+
+<section id="admin">
+<div class="admin">
+<h2 class="title">ایڈمن پینل</h2>
+<div id="adminLogin">
+<p style="text-align:center">پروڈکٹس شامل کرنے کے لیے ایڈمن پینل کھولیں۔</p>
+<div style="max-width:450px;margin:auto">
+<input type="password" id="password" placeholder="ایڈمن پاس ورڈ">
+<button class="btn green" onclick="login()">لاگ اِن</button>
+</div>
+</div>
+
+<div id="adminPanel">
+<div class="admin-row">
+<div><input id="pname" placeholder="پروڈکٹ کا نام"></div>
+<div><input id="pprice" placeholder="قیمت"></div>
+</div>
+<input id="pimage" placeholder="تصویر کا لنک (Image URL)">
+<select id="pcategory">
+<option>مردانہ</option><option>زنانہ</option><option>بچوں کے</option><option>پشاوری چپل</option><option>اسکول شوز</option>
+</select>
+<button class="btn green" onclick="addProduct()">➕ پروڈکٹ شامل کریں</button>
+<h3 style="margin-top:20px;color:var(--dark)">📦 موجودہ پروڈکٹس</h3>
+<div id="adminProductList"></div>
+</div>
+</div>
+</section>
+
+<footer>© 2026 Shahzad Shoe Mahal — All Rights Reserved</footer>
+
+<script>
+const defaults=[
+{name:'مردانہ فیشن شوز',price:'قیمت معلوم کریں',image:'https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=700&q=80'},
+{name:'خوبصورت زنانہ شوز',price:'قیمت معلوم کریں',image:'https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=700&q=80'},
+{name:'روایتی پشاوری چپل',price:'قیمت معلوم کریں',image:'https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=700&q=80'}
+];
+let products=JSON.parse(localStorage.getItem('ssm_products')||'null')||defaults;
+function save(){localStorage.setItem('ssm_products',JSON.stringify(products))}
+function render(){
+document.getElementById('productList').innerHTML=products.map(p=>`<div class="card"><img src="${p.image}" onerror="this.src='https://via.placeholder.com/500x350?text=Shahzad+Shoe+Mahal'"><h3>${p.name}</h3><p>💰 ${p.price}</p></div>`).join('');
+document.getElementById('adminProductList').innerHTML=products.length?products.map((p,i)=>`<div class="admin-product"><span>${p.name} — ${p.price}</span><button class="delete" onclick="removeProduct(${i})">ڈیلیٹ</button></div>`).join(''):'<p>ابھی کوئی پروڈکٹ نہیں ہے</p>';
+}
+function openAdmin(){document.getElementById('admin').scrollIntoView({behavior:'smooth'})}
+function login(){
+if(document.getElementById('password').value==='1234'){
+document.getElementById('adminLogin').style.display='none';
+document.getElementById('adminPanel').style.display='block';
+}else alert('پاس ورڈ درست نہیں ہے');
+}
+function addProduct(){
+let name=document.getElementById('pname').value.trim(),price=document.getElementById('pprice').value.trim(),image=document.getElementById('pimage').value.trim();
+if(!name||!price){alert('پروڈکٹ کا نام اور قیمت لکھیں');return}
+if(!image) image='https://via.placeholder.com/500x350?text=Shahzad+Shoe+Mahal';
+products.unshift({name,price,image});save();render();
+document.getElementById('pname').value='';document.getElementById('pprice').value='';document.getElementById('pimage').value='';
+}
+function removeProduct(i){products.splice(i,1);save();render()}
+render();
+</script>
+</body>
+</html>
